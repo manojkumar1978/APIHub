@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/smart" name="smartRoutingAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" uri-template="/routing">
+        <inSequence>
+            <log level="full">
+                <property name="START" value="Incoming request to /api/routing"/>
+            </log>
+            <property expression="get-property('transport', 'X-Route-Header')" name="routeHeader" scope="default" type="STRING"/>
+            <switch source="get-property('routeHeader')">
+                <case regex="customer">
+                    <log level="custom">
+                        <property name="INFO" value="Routing to Customer Data Service"/>
+                    </log>
+                    <!-- Payload for customer data -->
+                    <payloadFactory media-type="json">
+                        <format>
+                            {
+                                "endpoint": "http://customer-service.com/api",
+                                "customer": {
+                                    "customerId": "$1",
+                                    "name": "$2",
+                                    "email": "$3",
+                                    "phone": "$4"
+                                }
+                            }
+                        </format>
+                        <args>
+                            <arg evaluator="json" expression="$.customer.customerId"/>
+                            <arg evaluator="json" expression="$.customer.name"/>
+                            <arg evaluator="json" expression="$.customer.email"/>
+                            <arg evaluator="json" expression="$.customer.phone"/>
+                        </args>
+                    </payloadFactory>
+                    <respond/>
+                </case>
+                <case regex="shipping">
+                    <log level="custom">
+                        <property name="INFO" value="Routing to Shipping Service"/>
+                    </log>
+                    <!-- Payload for shipping data -->
+                    <payloadFactory media-type="json">
+                        <format>
+                            {
+                                "endpoint": "http://shipping-service.com/api",
+                                "shipping": {
+                                    "address": "$1",
+                                    "city": "$2",
+                                    "state": "$3",
+                                    "zip": "$4"
+                                }
+                            }
+                        </format>
+                        <args>
+                            <arg evaluator="json" expression="$.shipping.address"/>
+                            <arg evaluator="json" expression="$.shipping.city"/>
+                            <arg evaluator="json" expression="$.shipping.state"/>
+                            <arg evaluator="json" expression="$.shipping.zip"/>
+                        </args>
+                    </payloadFactory>
+                    <respond/>
+                </case>
+                <case regex="billing">
+                    <log level="custom">
+                        <property name="INFO" value="Routing to Billing Service"/>
+                    </log>
+                    <!-- Payload for billing data -->
+                    <payloadFactory media-type="json">
+                        <format>
+                            {
+                                "endpoint": "http://billing-service.com/api",
+                                "billing": {
+                                    "billingAddress": "$1",
+                                    "paymentMethod": "$2",
+                                    "cardNumber": "$3",
+                                    "cardExpiry": "$4"
+                                }
+                            }
+                        </format>
+                        <args>
+                            <arg evaluator="json" expression="$.billing.billingAddress"/>
+                            <arg evaluator="json" expression="$.billing.paymentMethod"/>
+                            <arg evaluator="json" expression="$.billing.cardNumber"/>
+                            <arg evaluator="json" expression="$.billing.cardExpiry"/>
+                        </args>
+                    </payloadFactory>
+                    <respond/>
+                </case>
+                <case regex="orderSummary">
+                    <log level="custom">
+                        <property name="INFO" value="Routing to Order Summary Service"/>
+                    </log>
+                    <!-- Payload for order summary data -->
+                    <payloadFactory media-type="json">
+                        <format>
+                            {
+                                "endpoint": "http://order-summary-service.com/api",
+                                "orderSummary": {
+                                    "orderId": "$1",
+                                    "orderDate": "$2",
+                                    "totalAmount": "$3",
+                                    "currency": "$4"
+                                }
+                            }
+                        </format>
+                        <args>
+                            <arg evaluator="json" expression="$.orderSummary.orderId"/>
+                            <arg evaluator="json" expression="$.orderSummary.orderDate"/>
+                            <arg evaluator="json" expression="$.orderSummary.totalAmount"/>
+                            <arg evaluator="json" expression="$.orderSummary.currency"/>
+                        </args>
+                    </payloadFactory>
+                    <respond/>
+                </case>
+                <default>
+                    <log level="full">
+                        <property name="INFO" value="Invalid header value"/>
+                    </log>
+                    <payloadFactory media-type="json">
+                        <format>
+                            {
+  "error": "Invalid route. Please provide a valid X-Route-Header value (route1 or route2)."
+}
+
+                        </format>
+                        <args/>
+                    </payloadFactory>
+                    <respond/>
+                </default>
+                <!-- Case for 'customer-data' (Customer Data Service) -->
+                <!-- Case for 'shipping' (Shipping Service) -->
+                <!-- Case for 'billing' (Billing Service) -->
+                <!-- Case for 'order-summary' (Order Summary Service) -->
+                <!-- Default case: Invalid route header -->
+            </switch>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

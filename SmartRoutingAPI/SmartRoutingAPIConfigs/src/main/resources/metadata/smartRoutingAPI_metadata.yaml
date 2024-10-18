@@ -1,0 +1,11 @@
+---
+key: "smartRoutingAPI-1.0.0"
+name : "smartRoutingAPI"
+displayName : "smartRoutingAPI"
+description: "Sample API"
+version: "1.0.0"
+serviceUrl: "https://{MI_HOST}:{MI_PORT}/api"
+definitionType: "OAS3"
+securityType: "BASIC"
+mutualSSLEnabled: false
+apiId : "null"
