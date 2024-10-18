@@ -118,7 +118,7 @@
                     <payloadFactory media-type="json">
                         <format>
                             {
-  "error": "Invalid route. Please provide a valid X-Route-Header value (route1 or route2)."
+  "error": "Invalid route. Please provide a valid X-Route-Header value."
 }
 
                         </format>
