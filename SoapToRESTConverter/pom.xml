@@ -3,14 +3,14 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.example</groupId>
-  <artifactId>SoapRestConverter</artifactId>
+  <artifactId>SoapToRESTConverter</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>SoapRestConverter</name>
-  <description>SoapRestConverter</description>
+  <name>SoapToRESTConverter</name>
+  <description>SoapToRESTConverter</description>
   <modules>
-    <module>SoapRestConverterConfigs</module>
-    <module>SoapRestConverterCompositeExporter</module>
+    <module>SoapToRESTConverterConfigs</module>
+    <module>SoapToRESTConverterCompositeExporter</module>
   </modules>
   <scm>
     <connection>scm:git:https://github.com/username/repository.git</connection>

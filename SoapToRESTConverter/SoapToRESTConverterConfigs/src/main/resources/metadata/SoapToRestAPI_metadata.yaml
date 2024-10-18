@@ -1,7 +1,7 @@
 ---
-key: "SoapRestConverterAPI-1.0.0"
-name : "SoapRestConverterAPI"
-displayName : "SoapRestConverterAPI"
+key: "SoapToRestAPI-1.0.0"
+name : "SoapToRestAPI"
+displayName : "SoapToRestAPI"
 description: "Sample API"
 version: "1.0.0"
 serviceUrl: "https://{MI_HOST}:{MI_PORT}/api"

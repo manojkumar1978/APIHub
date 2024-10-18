@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<api context="/api" name="SoapRestConverterAPI" xmlns="http://ws.apache.org/ns/synapse">
+<api context="/api" name="SoapToRestAPI" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="POST" uri-template="/transform">
         <inSequence>
             <log level="full">
