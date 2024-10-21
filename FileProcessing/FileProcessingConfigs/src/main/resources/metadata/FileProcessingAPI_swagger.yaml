@@ -1,0 +1,13 @@
+openapi: 3.0.1
+info:
+  title: FileProcessingAPI
+  description: API Definition of FileProcessingAPI
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/file
+paths:
+  /split:
+    get:
+      responses:
+        default:
+          description: Default response

@@ -1,0 +1,11 @@
+---
+key: "FileProcessingAPI-1.0.0"
+name : "FileProcessingAPI"
+displayName : "FileProcessingAPI"
+description: "Sample API"
+version: "1.0.0"
+serviceUrl: "https://{MI_HOST}:{MI_PORT}/file"
+definitionType: "OAS3"
+securityType: "BASIC"
+mutualSSLEnabled: false
+apiId : "null"
