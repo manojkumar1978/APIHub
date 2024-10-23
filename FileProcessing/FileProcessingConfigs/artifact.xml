@@ -8,7 +8,7 @@
     <artifact name="FileProcessingAPI_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
         <file>src/main/resources/metadata/FileProcessingAPI_metadata.yaml</file>
     </artifact>
-    <artifact name="file_connection" groupId="com.example.local-entry" version="1.0.0" type="synapse/local-entry" serverRole="EnterpriseServiceBus">
-        <file>\src\main\synapse-config\local-entries\file_connection.xml</file>
+    <artifact name="SFTP_Connection" groupId="com.example.local-entry" version="1.0.0" type="synapse/local-entry" serverRole="EnterpriseServiceBus">
+        <file>\src\main\synapse-config\local-entries\SFTP_Connection.xml</file>
     </artifact>
 </artifacts>

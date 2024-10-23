@@ -2,8 +2,16 @@
 <api context="/file" name="FileProcessingAPI" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="GET" uri-template="/split">
         <inSequence>
-            <file.read configKey="file_connection">
-                <path>C:\Users\10693093\Downloads\POCTesting\in\test.csv</path>
+            <file.listFiles configKey="SFTP_Connection">
+                <directoryPath>/ltipremierdev/choreoPOC/input/</directoryPath>
+                <recursive>false</recursive>
+                <responseFormat>Hierarchical</responseFormat>
+                <sortingAttribute>Name</sortingAttribute>
+                <sortingOrder>Ascending</sortingOrder>
+            </file.listFiles>
+            <log level="full"/>
+            <file.read configKey="SFTP_Connection">
+                <path>/ltipremierdev/choreoPOC/input/test.csv</path>
                 <filePattern>*.csv</filePattern>
                 <readMode>Complete File</readMode>
                 <startLineNum>0</startLineNum>
@@ -14,8 +22,10 @@
                 <enableStreaming>false</enableStreaming>
                 <enableLock>true</enableLock>
             </file.read>
+            <property expression="$ctx:FILE_NAME" name="fileReadName" scope="default" type="STRING"/>
             <log level="full">
                 <property expression="$ctx:csvData" name="csvData"/>
+                <property expression="$ctx:fileReadName" name="FILE_NAME"/>
             </log>
             <payloadFactory media-type="xml">
                 <format>
@@ -43,8 +53,8 @@
                 <sequence>
                     <property expression="json-eval($.line)" name="value" scope="default" type="STRING"/>
                     <property expression="fn:substring-before(get-property('value'),',')" name="counter" scope="default" type="STRING"/>
-                    <property expression="fn:concat('C:/Users/10693093/Downloads/POCTesting/out/file',$ctx:counter,'.txt')" name="filename" scope="default" type="STRING"/>
-                    <file.write configKey="file_connection">
+                    <property expression="fn:concat('/ltipremierdev/choreoPOC/output/file',$ctx:counter,'.txt')" name="filename" scope="default" type="STRING"/>
+                    <file.write configKey="SFTP_Connection">
                         <filePath>{$ctx:filename}</filePath>
                         <contentOrExpression>{json-eval($.line)}</contentOrExpression>
                         <mimeType>Automatic</mimeType>

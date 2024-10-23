@@ -17,11 +17,23 @@
     <com.example.api_._FileProcessingAPI>capp/EnterpriseServiceBus</com.example.api_._FileProcessingAPI>
     <com.example.lib_._file-connector>capp/EnterpriseServiceBus</com.example.lib_._file-connector>
     <com.example.metadata_._FileProcessingAPI_metadata>capp/EnterpriseServiceBus</com.example.metadata_._FileProcessingAPI_metadata>
-    <com.example.local-entry_._file_connection>capp/EnterpriseServiceBus</com.example.local-entry_._file_connection>
     <com.example.metadata_._FileProcessingAPI_swagger>capp/EnterpriseServiceBus</com.example.metadata_._FileProcessingAPI_swagger>
+    <com.example.local-entry_._SFTP_Connection>capp/EnterpriseServiceBus</com.example.local-entry_._SFTP_Connection>
     <artifact.types>jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,datasource/datasource=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,synapse/metadata=yaml,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar</artifact.types>
   </properties>
   <dependencies>
+    <dependency>
+      <groupId>com.example.metadata</groupId>
+      <artifactId>FileProcessingAPI_metadata</artifactId>
+      <version>1.0.0</version>
+      <type>yaml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.metadata</groupId>
+      <artifactId>FileProcessingAPI_swagger</artifactId>
+      <version>1.0.0</version>
+      <type>yaml</type>
+    </dependency>
     <dependency>
       <groupId>com.example.api</groupId>
       <artifactId>FileProcessingAPI</artifactId>
@@ -35,22 +47,10 @@
       <type>zip</type>
     </dependency>
     <dependency>
-      <groupId>com.example.metadata</groupId>
-      <artifactId>FileProcessingAPI_metadata</artifactId>
-      <version>1.0.0</version>
-      <type>yaml</type>
-    </dependency>
-    <dependency>
       <groupId>com.example.local-entry</groupId>
-      <artifactId>file_connection</artifactId>
+      <artifactId>SFTP_Connection</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.metadata</groupId>
-      <artifactId>FileProcessingAPI_swagger</artifactId>
-      <version>1.0.0</version>
-      <type>yaml</type>
     </dependency>
   </dependencies>
   <repositories>
