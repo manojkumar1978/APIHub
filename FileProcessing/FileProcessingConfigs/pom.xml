@@ -159,7 +159,7 @@
       <plugin>
         <groupId>org.wso2.maven</groupId>
         <artifactId>wso2-esb-localentry-plugin</artifactId>
-        <version>5.2.44</version>
+        <version>latest</version>
         <extensions>true</extensions>
         <executions>
           <execution>
