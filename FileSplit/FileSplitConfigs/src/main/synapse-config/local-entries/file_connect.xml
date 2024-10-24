@@ -3,7 +3,7 @@
     <file.init>
         <strictHostKeyChecking>false</strictHostKeyChecking>
         <connectionType>SFTP</connectionType>
-        <password>${env:SYS_PASS}</password>
+        <password>{sys:SYS_PASS}</password>
         <host>ftp.support.wso2.com</host>
         <fileLockScheme>Local</fileLockScheme>
         <sftpConnectionTimeout>100000</sftpConnectionTimeout>
