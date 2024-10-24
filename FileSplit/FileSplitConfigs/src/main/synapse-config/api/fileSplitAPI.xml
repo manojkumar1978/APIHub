@@ -2,6 +2,9 @@
 <api context="/file" name="fileSplitAPI" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="GET" uri-template="/split">
         <inSequence>
+<log level="full">
+    <property name="SFTP Password" expression="get-property('env:SYS_PASS')"/>
+</log>
             <file.read configKey="file_connect">
                 <path>/ltipremierdev/choreoPOC/input/test.csv</path>
                 <readMode>Complete File</readMode>
