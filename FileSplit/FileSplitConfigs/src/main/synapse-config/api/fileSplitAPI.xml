@@ -2,7 +2,7 @@
 <api context="/file" name="fileSplitAPI" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="GET" uri-template="/split">
         <inSequence>
-
+	<property expression="get-property('env', 'password')" name="password" scope="default" type="STRING"/>
             <file.read configKey="file_connect">
                 <path>/ltipremierdev/choreoPOC/input/test.csv</path>
                 <readMode>Complete File</readMode>
