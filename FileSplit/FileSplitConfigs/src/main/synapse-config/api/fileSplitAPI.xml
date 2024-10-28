@@ -3,6 +3,9 @@
     <resource methods="GET" uri-template="/split">
         <inSequence>
 	<property expression="get-property('env', 'password')" name="password" scope="default" type="STRING"/>
+<log>
+                <property expression="$ctx:password" name="PASSWORD"/>
+            </log>
             <file.read configKey="file_connect">
                 <path>/ltipremierdev/choreoPOC/input/test.csv</path>
                 <readMode>Complete File</readMode>
