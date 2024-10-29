@@ -3,7 +3,7 @@
     <file.init>
         <strictHostKeyChecking>false</strictHostKeyChecking>
         <connectionType>SFTP</connectionType>
-        <password>$SYSTEM:password</password>
+        <password>{$ctx:password}</password>
         <host>ftp.support.wso2.com</host>
         <fileLockScheme>Local</fileLockScheme>
         <sftpConnectionTimeout>100000</sftpConnectionTimeout>
