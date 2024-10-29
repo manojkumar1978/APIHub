@@ -9,7 +9,6 @@
   <name>FileSplit</name>
   <description>FileSplit</description>
   <modules>
-    <module>FileSplitRegistryResources</module>
     <module>FileSplitConnectorExporter</module>
     <module>FileSplitConfigs</module>
     <module>FileSplitCompositeExporter</module>
