@@ -6,7 +6,7 @@
             <!-- <property expression="get-property('transport', 'X-Route-Header')" name="password" scope="default" type="STRING"/>-->
             <!--  <property expression="get-property('registry', 'conf:/properties/properties.json@sftp_password')" name="password" scope="axis2" type="STRING"/> -->
             <!-- <property expression="get-property('registry', 'conf:/properties/properties.json@sftp_password')" name="password" type="STRING"/> -->
-            <!-- <property expression="wso2:vault-lookup('sftp_password')" name="password" scope="default" type="STRING"/> -->
+            <property expression="wso2:vault-lookup('sftp_password')" name="password" scope="default" type="STRING"/>
             <log>
                 <property expression="$ctx:password" name="PASSWORD"/>
             </log>
