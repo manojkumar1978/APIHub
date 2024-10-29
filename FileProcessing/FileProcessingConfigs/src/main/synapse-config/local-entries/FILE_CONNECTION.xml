@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localEntry key="FILE_CONNECTION" xmlns="http://ws.apache.org/ns/synapse">
+    <file.init>
+        <strictHostKeyChecking>false</strictHostKeyChecking>
+        <connectionType>SFTP</connectionType>
+        <password>{$ctx:password}</password>
+        <host>ftp.support.wso2.com</host>
+        <fileLockScheme>Local</fileLockScheme>
+        <sftpConnectionTimeout>100000</sftpConnectionTimeout>
+        <setAvoidPermission>false</setAvoidPermission>
+        <userDirIsRoot>false</userDirIsRoot>
+        <port>22</port>
+        <name>FILE_CONNECTION</name>
+        <sftpSessionTimeout>150000</sftpSessionTimeout>
+        <username>ltipremierdev</username>
+    </file.init>
+</localEntry>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="fileProcessAPI" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/fileProcessAPI.xml</file>
+    </artifact>
+    <artifact name="fileProcessAPI_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/fileProcessAPI_swagger.yaml</file>
+    </artifact>
+    <artifact name="fileProcessAPI_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/fileProcessAPI_metadata.yaml</file>
+    </artifact>
+    <artifact name="FILE_CONNECTION" groupId="com.example.local-entry" version="1.0.0" type="synapse/local-entry" serverRole="EnterpriseServiceBus">
+        <file>\src\main\synapse-config\local-entries\FILE_CONNECTION.xml</file>
+    </artifact>
+</artifacts>
