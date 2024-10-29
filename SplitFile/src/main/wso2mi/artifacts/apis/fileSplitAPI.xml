@@ -2,17 +2,21 @@
 <api context="/file" name="fileSplitAPI" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="GET" uri-template="/split">
         <inSequence>
+	<property expression="wso2:vault-lookup('sftp_password')" name="password" scope="default" type="STRING"/>
+            <!-- <property expression="get-property('transport', 'X-Route-Header')" name="password" scope="default" type="STRING"/>-->
+            <log>
+                <property expression="$ctx:password" name="PASSWORD"/>
+            </log>
             <file.read configKey="file_connect">
                 <path>/ltipremierdev/choreoPOC/input/test.csv</path>
                 <readMode>Complete File</readMode>
+                <startLineNum>0</startLineNum>
+                <lineNum>0</lineNum>
                 <contentType>text/plain</contentType>
                 <includeResultTo>Message Property</includeResultTo>
                 <resultPropertyName>csvData</resultPropertyName>
                 <enableStreaming>false</enableStreaming>
                 <enableLock>false</enableLock>
-                <encoding>UTF-8</encoding>
-                <maxRetries>0</maxRetries>
-                <retryDelay>0</retryDelay>
             </file.read>
             <property expression="$ctx:FILE_NAME" name="fileReadName" scope="default" type="STRING"/>
             <log level="full">
