@@ -98,8 +98,8 @@ algorithm = "AES"
 # [mediation]
 # synapse.global_timeout_interval = "120000"  # interval in milliseconds
 
-# [secrets]
-# secret_key = "[secret value]"
+[secrets]
+sftp_password   = "wSs+S4URjqla9NpJsrsKWCUkSWuQRdUh30WBOfElz9y1egaKKB+4T1BT0dU1FOcJoYeMHiyq+kyc+Ha0BflchmdykfzJxhMt3AHLn0FrBIV23DJtHfeFHFWmTJvRCBaF/IjaBhLQC+qOhsPaUAQPNBqmx3u2tWtk+ozbRb/kUpSpD7Ruwi3wnQyNAzwfKtg0kMFAAQQ6Di9vgtjpEq9wJwXEqwXOu/nAOH6nhS5KNR7++JBwo8NtET7+xFeJRUvW3cqXDRTlYk1Yzmd6PNNAxzgaXTHs51JA5PH3Hcg5lEkjHcNFI5Bh877HS0cuVTqtQR8605FIf4jaoDhoxQ8iIw=="
 
 # [[service_catalog]]
 # apim_host = "https://localhost:9443"
