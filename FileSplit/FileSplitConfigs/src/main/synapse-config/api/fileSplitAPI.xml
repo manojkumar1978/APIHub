@@ -2,8 +2,9 @@
 <api context="/file" name="fileSplitAPI" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="GET" uri-template="/split">
         <inSequence>
-	<property expression="get-property('env', 'password')" name="password" scope="default" type="STRING"/>
-<log>
+	<property expression="wso2:vault-lookup('sftp_password')" name="password" scope="default" type="STRING"/>
+            <!-- <property expression="get-property('transport', 'X-Route-Header')" name="password" scope="default" type="STRING"/>-->
+            <log>
                 <property expression="$ctx:password" name="PASSWORD"/>
             </log>
             <file.read configKey="file_connect">
