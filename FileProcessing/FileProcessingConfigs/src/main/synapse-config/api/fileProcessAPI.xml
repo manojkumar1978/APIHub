@@ -48,25 +48,28 @@
                 <args/>
             </payloadFactory>
             <log level="full"/>
-            <foreach expression="json-eval($.lines)">
-                <sequence>
-                    <property expression="json-eval($.line)" name="value" scope="default" type="STRING"/>
-                    <property expression="fn:substring-before(get-property('value'),',')" name="counter" scope="default" type="STRING"/>
-                    <property expression="fn:concat('/ltipremierdev/choreoPOC/output/file',$ctx:counter,'.txt')" name="filename" scope="default" type="STRING"/>
-                    <file.write configKey="FILE_CONNECTION">
-                        <filePath>{$ctx:filename}</filePath>
-                        <contentOrExpression>{json-eval($.line)}</contentOrExpression>
-                        <mimeType>Automatic</mimeType>
-                        <compress>false</compress>
-                        <writeMode>Overwrite</writeMode>
-                        <enableStreaming>false</enableStreaming>
-                        <appendNewLine>false</appendNewLine>
-                        <enableLock>false</enableLock>
-                        <includeResultTo>Message Body</includeResultTo>
-                        <updateLastModified>true</updateLastModified>
-                    </file.write>
-                </sequence>
-            </foreach>
+            <iterate continueParent="true" expression="json-eval($.lines)">
+                <target>
+                    <sequence>
+                        <property expression="json-eval($.line)" name="value" scope="default" type="STRING"/>
+                        <property expression="fn:substring-before(get-property('value'),',')" name="counter" scope="default" type="STRING"/>
+                        <property expression="fn:concat('/ltipremierdev/choreoPOC/output/file',$ctx:counter,'.txt')" name="filename" scope="default" type="STRING"/>
+                        <file.write configKey="FILE_CONNECTION">
+                            <filePath>{$ctx:filename}</filePath>
+                            <contentOrExpression>{json-eval($.line)}</contentOrExpression>
+                            <mimeType>Automatic</mimeType>
+                            <compress>false</compress>
+                            <writeMode>Overwrite</writeMode>
+                            <enableStreaming>false</enableStreaming>
+                            <appendNewLine>false</appendNewLine>
+                            <enableLock>false</enableLock>
+                            <includeResultTo>Message Property</includeResultTo>
+                            <resultPropertyName>writefiledata</resultPropertyName>
+                            <updateLastModified>true</updateLastModified>
+                        </file.write>
+                    </sequence>
+                </target>
+            </iterate>
             <payloadFactory media-type="text">
                 <format>Files are placed successfully</format>
                 <args/>
