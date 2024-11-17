@@ -2,33 +2,7 @@
 <api context="/api" name="SoapToRestAPI" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="POST" uri-template="/transform">
         <inSequence>
-            <log level="full">
-                <property expression="get-property('transport', 'Content-Type')" name="Incoming Message Type"/>
-            </log>
-            <payloadFactory media-type="json">
-                <format>
-                   {
-    "EmployeeDetails": {
-        "EmployeeID": "$1",
-        "EmployeeName": "$2",
-        "EmployeeAge": "$3",
-        "EmployeeLocation": "$4",
-        "EmployeeEmail": "$5"
-    }
-}
-                </format>
-                <args>
-                    <arg evaluator="xml" expression="//ex:EmployeeID" xmlns:ex="http://example.com/"/>
-                    <arg evaluator="xml" expression="//ex:EmployeeName" xmlns:ex="http://example.com/"/>
-                    <arg evaluator="xml" expression="//ex:EmployeeAge" xmlns:ex="http://example.com/"/>
-                    <arg evaluator="xml" expression="//ex:EmployeeLocation" xmlns:ex="http://example.com/"/>
-                    <arg evaluator="xml" expression="//ex:EmployeeEmail" xmlns:ex="http://example.com/"/>
-                </args>
-            </payloadFactory>
             <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
-            <log level="full">
-                <property expression="get-property('transport', 'Content-Type')" name="Outgoing Message Type"/>
-            </log>
             <respond/>
         </inSequence>
         <outSequence/>
